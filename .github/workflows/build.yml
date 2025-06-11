@@ -12,50 +12,50 @@
 // };
 
 / {
-    /* input config for mouse move mode */
-    trackball_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
-        layers = <0 3 6>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <1>;
-        scale-divisor = <2>;
-        // bindings = <&ib_toggle_layer 7>;
-    };
+    /* input config for mouse move mode - Temporarily commented out */
+    // trackball_listener {
+    //     compatible = "zmk,input-behavior-listener";
+    //     device = <&vtrackball>;
+    //     layers = <0 3 6>;
+    //     evt-type = <INPUT_EV_REL>;
+    //     x-input-code = <INPUT_REL_X>;
+    //     y-input-code = <INPUT_REL_Y>;
+    //     scale-multiplier = <1>;
+    //     scale-divisor = <2>;
+    //     // bindings = <&ib_toggle_layer 7>;
+    // };
 
-    /* input config for snipe mode */
-    trackball_snipe_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
-        layers = <10>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <1>;
-        scale-divisor = <4>;
-    };
+    /* input config for snipe mode - Temporarily commented out */
+    // trackball_snipe_listener {
+    //     compatible = "zmk,input-behavior-listener";
+    //     device = <&vtrackball>;
+    //     layers = <10>;
+    //     evt-type = <INPUT_EV_REL>;
+    //     x-input-code = <INPUT_REL_X>;
+    //     y-input-code = <INPUT_REL_Y>;
+    //     scale-multiplier = <1>;
+    //     scale-divisor = <4>;
+    // };
 
-    /* input config for mouse scroll mode */
-    trackball_scroll_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
-        layers = <9>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_MISC>;
-        y-input-code = <INPUT_REL_WHEEL>;
-        y-invert;
-        bindings = <&ib_wheel_scaler 1 14>;
-    };
+    /* input config for mouse scroll mode - Temporarily commented out */
+    // trackball_scroll_listener {
+    //     compatible = "zmk,input-behavior-listener";
+    //     device = <&vtrackball>;
+    //     layers = <9>;
+    //     evt-type = <INPUT_EV_REL>;
+    //     x-input-code = <INPUT_REL_MISC>;
+    //     y-input-code = <INPUT_REL_WHEEL>;
+    //     y-invert;
+    //     bindings = <&ib_wheel_scaler 1 14>;
+    // };
 
-    /* define a resolution down scaler only for INPUT_REL_WHEEL */
-    ib_wheel_scaler: ib_wheel_scaler {
-        compatible = "zmk,input-behavior-scaler";
-        #binding-cells = <2>;
-        evt-type = <INPUT_EV_REL>;
-        input-code = <INPUT_REL_WHEEL>;
-    };
+    /* define a resolution down scaler only for INPUT_REL_WHEEL - Temporarily commented out */
+    // ib_wheel_scaler: ib_wheel_scaler {
+    //     compatible = "zmk,input-behavior-scaler";
+    //     #binding-cells = <2>;
+    //     evt-type = <INPUT_EV_REL>;
+    //     input-code = <INPUT_REL_WHEEL>;
+    // };
 
     /* adjust cooldown waiting period for mouse key layer after activated */
     ib_toggle_layer: ib_toggle_layer {
@@ -168,8 +168,8 @@
                 &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
                 &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
                 &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                          &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                           &mkp RCLK          &mkp LCLK         &kp NO
+                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
+                                                                            &mkp RCLK          &mkp LCLK         &kp NO
             >;
         };
 
@@ -192,8 +192,8 @@
                 &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
                 &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
                 &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                          &trans            &trans            &trans           &trans           &kp PRINTSCREEN
-                                                                           &trans            &trans           &trans
+                                                           &trans            &trans            &trans           &trans           &kp PRINTSCREEN
+                                                                            &trans            &trans           &trans
             >;
         };
 
@@ -204,8 +204,8 @@
                 &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
                 &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
                 &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                          &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                           &mkp RCLK          &mkp LCLK         &kp NO
+                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
+                                                                            &mkp RCLK          &mkp LCLK         &kp NO
             >;
         };
 
@@ -228,8 +228,8 @@
                 &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
                 &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
                 &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                          &trans            &trans            &trans           &trans           &kp LS(LG(NUMBER_5))
-                                                                           &trans            &trans           &trans
+                                                           &trans            &trans            &trans           &trans           &kp LS(LG(NUMBER_5))
+                                                                            &trans            &trans           &trans
             >;
         };
 
@@ -240,8 +240,8 @@
                 &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
                 &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
                 &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                          &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                           &mkp RCLK          &mkp LCLK         &kp NO
+                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
+                                                                            &mkp RCLK          &mkp LCLK         &kp NO
             >;
         };
 
@@ -264,8 +264,8 @@
                 &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
                 &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
                 &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                          &trans            &trans            &trans           &trans           &kp PRINTSCREEN
-                                                                           &trans            &trans           &trans
+                                                           &trans            &trans            &trans           &trans           &kp PRINTSCREEN
+                                                                            &trans            &trans           &trans
             >;
         };
 
@@ -300,8 +300,8 @@
                 &trans             &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
                 &bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
                 &trans             &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                               &trans        &trans        &trans          &trans  &trans
-                                                             &trans        &trans          &trans
+                                            &trans        &trans        &trans          &trans  &trans
+                                                          &trans        &trans          &trans
             >;
         };
     };
