@@ -168,8 +168,8 @@
                 &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
                 &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
                 &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                          &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                           &mkp RCLK          &mkp LCLK         &kp NO
+                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
+                                                                            &mkp RCLK          &mkp LCLK         &kp NO
             >;
         };
 
@@ -180,8 +180,8 @@
                 &kp DE_SECTION                &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
                 &kp DE_POUND_SIGN             &kp N1                &kp DE_LESS_THAN            &kp DE_EQUAL                       &kp DE_GREATER_THAN                  &kp DE_TILDE      &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp ENTER                      &kp DE_BROKEN_BAR
                 &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp DE_PERIOD                  &kp DE_BACKSLASH
-                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                    &trans                                &trans            &trans
+                                                                                     &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
+                                                                                                                       &trans                                &trans            &trans
             >;
         };
 
@@ -192,8 +192,8 @@
                 &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
                 &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
                 &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                          &trans            &trans            &trans           &trans           &kp PRINTSCREEN
-                                                                           &trans            &trans           &trans
+                                                           &trans            &trans            &trans           &trans           &kp PRINTSCREEN
+                                                                            &trans            &trans           &trans
             >;
         };
 
@@ -204,8 +204,8 @@
                 &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
                 &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
                 &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                          &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                           &mkp RCLK          &mkp LCLK         &kp NO
+                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
+                                                                            &mkp RCLK          &mkp LCLK         &kp NO
             >;
         };
 
@@ -216,8 +216,8 @@
                 &kp DE_LESS_THAN              &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
                 &kp DE_POUND_SIGN             &kp N1                &kp DE_SECTION              &kp DE_EQUAL                       &kp LS(DE_SECTION)                   &kp LA(N)         &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp LA(RETURN)                  &kp DE_BROKEN_BAR
                 &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp LA(DE_DOT)                  &kp LA(LS(NUMBER_7))
-                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                    &trans                                &trans            &trans
+                                                                                     &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
+                                                                                                                       &trans                                &trans            &trans
             >;
         };
 
@@ -228,8 +228,8 @@
                 &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
                 &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
                 &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                          &trans            &trans            &trans           &trans           &kp LS(LG(NUMBER_5))
-                                                                           &trans            &trans           &trans
+                                                           &trans            &trans            &trans           &trans           &kp LS(LG(NUMBER_5))
+                                                                            &trans            &trans           &trans
             >;
         };
 
@@ -240,8 +240,8 @@
                 &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
                 &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
                 &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                          &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                           &mkp RCLK          &mkp LCLK         &kp NO
+                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
+                                                                            &mkp RCLK          &mkp LCLK         &kp NO
             >;
         };
 
@@ -252,8 +252,8 @@
                 &kp DE_SECTION                &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
                 &kp DE_POUND_SIGN             &kp N1                &kp DE_LESS_THAN            &kp DE_EQUAL                       &kp DE_GREATER_THAN                  &kp DE_TILDE      &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp ENTER                      &kp DE_BROKEN_BAR
                 &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp DE_PERIOD                  &kp DE_BACKSLASH
-                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                    &trans                                &trans            &trans
+                                                                                     &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
+                                                                                                                       &trans                                &trans            &trans
             >;
         };
 
@@ -264,8 +264,8 @@
                 &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
                 &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
                 &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                          &trans            &trans            &trans           &trans           &kp PRINTSCREEN
-                                                                           &trans            &trans           &trans
+                                                           &trans            &trans            &trans           &trans           &kp PRINTSCREEN
+                                                                            &trans            &trans           &trans
             >;
         };
 
