@@ -28,7 +28,7 @@ jobs:
 
   build:
     needs: convert-and-store-keymap
-    uses: ./.github/workflows/user_config_build.yaml  # Ensure this matches the exact file name
+    uses: ./.github/workflows/user_config_build.yaml
     # Fallback: If the issue persists, comment out the above line and use a manual build step
     # - run: |
     #     echo "Manual build fallback"
