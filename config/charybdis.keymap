@@ -15,7 +15,7 @@
     /* input config for mouse move mode */
     trackball_listener {
         compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
+        device = <&trackball>;
         layers = <0 3 6>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
@@ -28,7 +28,7 @@
     /* input config for snipe mode */
     trackball_snipe_listener {
         compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
+        device = <&trackball>;
         layers = <10>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
@@ -40,7 +40,7 @@
     /* input config for mouse scroll mode */
     trackball_scroll_listener {
         compatible = "zmk,input-behavior-listener";
-        device = <&vtrackball>;
+        device = <&trackball>;
         layers = <9>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_MISC>;
@@ -180,8 +180,8 @@
                 &kp DE_SECTION                &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
                 &kp DE_POUND_SIGN             &kp N1                &kp DE_LESS_THAN            &kp DE_EQUAL                       &kp DE_GREATER_THAN                  &kp DE_TILDE      &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp ENTER                      &kp DE_BROKEN_BAR
                 &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp DE_PERIOD                  &kp DE_BACKSLASH
-                                                                                     &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                       &trans                                &trans            &trans
+                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
+                                                                                                                    &trans                                &trans            &trans
             >;
         };
 
@@ -216,8 +216,8 @@
                 &kp DE_LESS_THAN              &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
                 &kp DE_POUND_SIGN             &kp N1                &kp DE_SECTION              &kp DE_EQUAL                       &kp LS(DE_SECTION)                   &kp LA(N)         &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp LA(RETURN)                  &kp DE_BROKEN_BAR
                 &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp LA(DE_DOT)                  &kp LA(LS(NUMBER_7))
-                                                                                     &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                       &trans                                &trans            &trans
+                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
+                                                                                                                    &trans                                &trans            &trans
             >;
         };
 
@@ -252,8 +252,8 @@
                 &kp DE_SECTION                &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
                 &kp DE_POUND_SIGN             &kp N1                &kp DE_LESS_THAN            &kp DE_EQUAL                       &kp DE_GREATER_THAN                  &kp DE_TILDE      &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp ENTER                      &kp DE_BROKEN_BAR
                 &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp DE_PERIOD                  &kp DE_BACKSLASH
-                                                                                     &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                       &trans                                &trans            &trans
+                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
+                                                                                                                    &trans                                &trans            &trans
             >;
         };
 
@@ -300,8 +300,8 @@
                 &trans             &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
                 &bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
                 &trans             &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                               &trans        &trans        &trans          &trans  &trans
-                                                             &trans        &trans          &trans
+                                            &trans        &trans        &trans          &trans  &trans
+                                                          &trans        &trans          &trans
             >;
         };
     };
