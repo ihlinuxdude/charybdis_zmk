@@ -29,4 +29,7 @@ jobs:
   build:
     needs: convert-and-store-keymap
     uses: ./.github/workflows/user_config_build.yaml  # Ensure this matches the exact file name
-    # Temporarily comment out if issues persist: # uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # Fallback: If the issue persists, comment out the above line and use a manual build step
+    # - run: |
+    #     echo "Manual build fallback"
+    #     docker run --rm -v $(pwd):/work zmkfirmware/zmk-build-arm:stable west build --pristine -s zmk/app -b nice_nano_v2 -DSHIELD=charybdis_left
