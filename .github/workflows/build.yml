@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      # Remove duplicate checkout
-      # - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
@@ -30,12 +28,5 @@ jobs:
 
   build:
     needs: convert-and-store-keymap
-    uses: ./.github/workflows/user_config_build.yaml
-    # uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-
-  keymap_images:
-    needs: build
-    permissions:
-      contents: write
-    uses: ./.github/workflows/draw_keymaps.yaml
-    # credit to https://github.com/caksoylar/keymap-drawer
+    uses: ./.github/workflows/user_config_build.yaml  # Ensure this matches the exact file name
+    # Temporarily comment out if issues persist: # uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
