@@ -1,308 +1,52 @@
-#include "keys_de_swiss.h"
-#include <dt-bindings/zmk/mouse.h>
-#include <behaviors/mouse_keys.dtsi>
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
+name: Build ZMK Firmware
 
-// / {
-//     chosen { zmk,matrix_transform = &default_transform; };
-// };
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-/ {
-    /* input config for mouse move mode - Temporarily commented out */
-    // trackball_listener {
-    //     compatible = "zmk,input-behavior-listener";
-    //     device = <&vtrackball>;
-    //     layers = <0 3 6>;
-    //     evt-type = <INPUT_EV_REL>;
-    //     x-input-code = <INPUT_REL_X>;
-    //     y-input-code = <INPUT_REL_Y>;
-    //     scale-multiplier = <1>;
-    //     scale-divisor = <2>;
-    //     // bindings = <&ib_toggle_layer 7>;
-    // };
-
-    /* input config for snipe mode - Temporarily commented out */
-    // trackball_snipe_listener {
-    //     compatible = "zmk,input-behavior-listener";
-    //     device = <&vtrackball>;
-    //     layers = <10>;
-    //     evt-type = <INPUT_EV_REL>;
-    //     x-input-code = <INPUT_REL_X>;
-    //     y-input-code = <INPUT_REL_Y>;
-    //     scale-multiplier = <1>;
-    //     scale-divisor = <4>;
-    // };
-
-    /* input config for mouse scroll mode - Temporarily commented out */
-    // trackball_scroll_listener {
-    //     compatible = "zmk,input-behavior-listener";
-    //     device = <&vtrackball>;
-    //     layers = <9>;
-    //     evt-type = <INPUT_EV_REL>;
-    //     x-input-code = <INPUT_REL_MISC>;
-    //     y-input-code = <INPUT_REL_WHEEL>;
-    //     y-invert;
-    //     bindings = <&ib_wheel_scaler 1 14>;
-    // };
-
-    /* define a resolution down scaler only for INPUT_REL_WHEEL - Temporarily commented out */
-    // ib_wheel_scaler: ib_wheel_scaler {
-    //     compatible = "zmk,input-behavior-scaler";
-    //     #binding-cells = <2>;
-    //     evt-type = <INPUT_EV_REL>;
-    //     input-code = <INPUT_REL_WHEEL>;
-    // };
-
-    /* adjust cooldown waiting period for mouse key layer after activated */
-    ib_toggle_layer: ib_toggle_layer {
-        compatible = "zmk,input-behavior-tog-layer";
-        #binding-cells = <1>;
-        time-to-live-ms = <750>;
-    };
-
-    combos {
-        compatible = "zmk,combos";
-        to-WIN {
-            bindings = <&to 0>;
-            key-positions = <50 51>;
-            layers = <3 6 11>;
-        };
-        to-MAC {
-            bindings = <&to 3>;
-            key-positions = <50 51>;
-            layers = <0 6 11>;
-        };
-        to-GAME {
-            bindings = <&to 6>;
-            key-positions = <47 36>;
-            layers = <0 3 11>;
-        };
-        to-FN {
-            bindings = <&to 11>;
-            key-positions = <41 42>;
-            layers = <0 3 6>;
-        };
-        caps_word {
-            bindings = <&caps_word>;
-            key-positions = <31 28>;
-        };
-        rh_leftClick {
-            bindings = <&mkp LCLK>;
-            key-positions = <43 44>;
-        };
-        rh_rightClick {
-            bindings = <&mkp RCLK>;
-            key-positions = <44 45>;
-        };
-        rh_middleClick {
-            bindings = <&mkp MCLK>;
-            key-positions = <44 45 43>;
-        };
-        lh_leftClick {
-            bindings = <&mkp LCLK>;
-            key-positions = <40 39>;
-        };
-        lh_rightClick {
-            bindings = <&mkp RCLK>;
-            key-positions = <38 39>;
-        };
-        lh_middleClick {
-            bindings = <&mkp MCLK>;
-            key-positions = <38 39 40>;
-        };
-        CAPZ {
-            bindings = <&kp CAPSLOCK>;
-            key-positions = <24 25>;
-        };
-        // New toggle and momentary combos
-        toggle_quertz { bindings = <&tog 0>; key-positions = <16 50>; } // LEFT_SHIFT (16) + Blue Dot (50) toggles QUERTZ
-        momentary_quertz { bindings = <&mo 0>; key-positions = <50 51>; } // Blue Dot + Green Dot momentary QUERTZ
-        toggle_numbers { bindings = <&tog 1>; key-positions = <16 51>; } // LEFT_SHIFT + Green Dot toggles NUMBERS
-        momentary_numbers { bindings = <&mo 1>; key-positions = <51 53>; } // Green Dot + Red Dot momentary NUMBERS
-        toggle_nav_fun { bindings = <&tog 2>; key-positions = <16 53>; } // LEFT_SHIFT + Red Dot toggles NAV-FUN
-        momentary_nav_fun { bindings = <&mo 2>; key-positions = <53 50>; } // Red Dot + Blue Dot momentary NAV-FUN
-        toggle_mac { bindings = <&tog 3>; key-positions = <16 52>; } // LEFT_SHIFT + Extra Thumb toggles MAC
-        momentary_mac { bindings = <&mo 3>; key-positions = <52 51>; } // Extra Thumb + Green Dot momentary MAC
-        toggle_game { bindings = <&tog 6>; key-positions = <16 54>; } // LEFT_SHIFT + Rightmost Thumb toggles GAME
-        momentary_game { bindings = <&mo 6>; key-positions = <54 53>; } // Rightmost Thumb + Red Dot momentary GAME
-        toggle_fn { bindings = <&tog 11>; key-positions = <16 55>; } // LEFT_SHIFT + Rightmost Thumb + Extra toggles FN
-        momentary_fn { bindings = <&mo 11>; key-positions = <55 52>; } // Rightmost Thumb + Extra momentary FN
-    };
-
-    behaviors {
-        hmr: hmr {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HMR";
-            bindings = <&kp>, <&kp>;
-            #binding-cells = <2>;
-            tapping-term-ms = <190>;
-            quick-tap-ms = <175>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 53 54 51 52 55>;
-            hold-trigger-on-release;
-        };
-        hml: hml {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HML";
-            bindings = <&kp>, <&kp>;
-            #binding-cells = <2>;
-            tapping-term-ms = <190>;
-            quick-tap-ms = <175>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <48 49 50 53 54 51 52 55 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 51 52>;
-            hold-trigger-on-release;
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        default_win_layer {
-            label = "QUERTZ";
-            bindings = <
-                &kp ESCAPE      &kp N1               &kp N2           &kp N3           &kp N4             &kp N5            &kp N6       &kp N7              &kp N8            &kp N9            &kp N0                          &kp DE_SQT
-                &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
-                &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
-                &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                            &mkp RCLK          &mkp LCLK         &kp NO
-            >;
-        };
-
-        win_raise_layer {
-            label = "NUMBERS";
-            bindings = <
-                &trans                        &trans                &trans                      &trans                              &trans                                &trans            &trans               &trans                  &trans                          &trans                           &trans                         &trans
-                &kp DE_SECTION                &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
-                &kp DE_POUND_SIGN             &kp N1                &kp DE_LESS_THAN            &kp DE_EQUAL                       &kp DE_GREATER_THAN                  &kp DE_TILDE      &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp ENTER                      &kp DE_BROKEN_BAR
-                &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp DE_PERIOD                  &kp DE_BACKSLASH
-                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                    &trans                                &trans            &trans
-            >;
-        };
-
-        win_lower_layer {
-            label = "NAV-FUN";
-            bindings = <
-                &trans      &trans    &trans         &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
-                &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
-                &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                           &trans            &trans            &trans           &trans           &kp PRINTSCREEN
-                                                                            &trans            &trans           &trans
-            >;
-        };
-
-        default_mac_layer {
-            label = "MAC";
-            bindings = <
-                &kp ESCAPE      &kp N1               &kp N2           &kp N3           &kp N4             &kp N5            &kp N6       &kp N7              &kp N8            &kp N9            &kp N0                          &kp DE_SQT
-                &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
-                &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
-                &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                            &mkp RCLK          &mkp LCLK         &kp NO
-            >;
-        };
-
-        mac_raise_layer {
-            label = "MAC-NUM";
-            bindings = <
-                &trans                        &trans                &trans                      &trans                              &trans                                &trans            &trans               &trans                  &trans                          &trans                           &trans                         &trans
-                &kp DE_LESS_THAN              &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
-                &kp DE_POUND_SIGN             &kp N1                &kp DE_SECTION              &kp DE_EQUAL                       &kp LS(DE_SECTION)                   &kp LA(N)         &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp LA(RETURN)                  &kp DE_BROKEN_BAR
-                &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp LA(DE_DOT)                  &kp LA(LS(NUMBER_7))
-                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                    &trans                                &trans            &trans
-            >;
-        };
-
-        mac_lower_layer {
-            label = "MAC-NAV";
-            bindings = <
-                &trans      &trans    &trans         &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
-                &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
-                &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                           &trans            &trans            &trans           &trans           &kp LS(LG(NUMBER_5))
-                                                                            &trans            &trans           &trans
-            >;
-        };
-
-        default_game_layer {
-            label = "GAME";
-            bindings = <
-                &kp ESCAPE      &kp N1               &kp N2           &kp N3           &kp N4             &kp N5            &kp N6       &kp N7              &kp N8            &kp N9            &kp N0                          &kp DE_SQT
-                &kp TAB         &kp Q                &kp W            &kp E            &kp R              &kp T             &kp DE_Z     &kp U               &kp I             &kp O             &kp P                           &kp DE_U_UMLAUT
-                &kp DELETE      &kp A                &kp S            &kp D            &kp F              &kp G             &kp H        &kp J               &kp K             &kp L             &kp SEMICOLON                    &kp DE_A_UMLAUT
-                &kp LEFT_SHIFT  &kp DE_Y             &kp X            &kp C            &kp V              &kp B             &kp N        &kp M               &kp DE_COMMA      &kp DE_PERIOD     &kp DE_MINUS                        &kp RSHIFT
-                                                           &kp TAB            &kp SPACE          &kp LEFT_GUI      &kp ENTER         &kp BACKSPACE
-                                                                            &mkp RCLK          &mkp LCLK         &kp NO
-            >;
-        };
-
-        game_raise_layer {
-            label = "GAME-NUM";
-            bindings = <
-                &trans                        &trans                &trans                      &trans                              &trans                                &trans            &trans               &trans                  &trans                          &trans                           &trans                         &trans
-                &kp DE_SECTION                &kp DE_EXCLAMATION    &kp DE_DOUBLE_QUOTES        &kp DE_HASH                        &kp DE_CENT                          &kp DE_PERCENT    &kp DE_NOT           &kp DE_SLASH            &kp DE_LEFT_PARENTHESIS          &kp DE_RIGHT_PARENTHESIS        &kp DE_ACUTE                   &kp DE_GRAVE
-                &kp DE_POUND_SIGN             &kp N1                &kp DE_LESS_THAN            &kp DE_EQUAL                       &kp DE_GREATER_THAN                  &kp DE_TILDE      &kp DE_PLUS          &kp N4                   &kp N5                            &kp N6                          &kp ENTER                      &kp DE_BROKEN_BAR
-                &kp DE_CARET                  &trans                &kp DE_AT                   &kp DE_LEFT_BRACKET                &kp DE_RIGHT_BRACKET                 &kp DE_UMLAUT     &kp DE_MINUS         &kp N1                   &kp N2                            &kp N3                          &kp DE_PERIOD                  &kp DE_BACKSLASH
-                                                                                  &trans                              &kp BACKSPACE                         &trans            &trans               &kp N0
-                                                                                                                    &trans                                &trans            &trans
-            >;
-        };
-
-        game_lower_layer {
-            label = "GAME-NAV";
-            bindings = <
-                &trans      &trans    &trans         &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                &kp ESCAPE  &kp F1    &kp F2         &kp F3          &kp F4            &kp F5        &kp F6  &kp F7           &kp F8          &kp F9        &kp F10          &kp F11
-                &trans      &kp HOME  &kp PAGE_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans  &kp LEFT_ARROW   &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
-                &trans      &kp END   &kp PAGE_DOWN  &trans          &trans            &trans        &trans  &trans           &trans          &trans        &trans           &trans
-                                                           &trans            &trans            &trans           &trans           &kp PRINTSCREEN
-                                                                            &trans            &trans           &trans
-            >;
-        };
-
-        scroll_layer {
-            label = "SCROLL";
-            bindings = <
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
-                                &trans  &trans    &trans
-            >;
-        };
-
-        sniper_layer {
-            label = "SNIPER";
-            bindings = <
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
-                                &trans  &trans    &trans
-            >;
-        };
-
-        keeb_pref_layer {
-            label = "FN";
-            bindings = <
-                &ext_power EP_TOG  &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                &trans             &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                &bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans             &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                            &trans        &trans        &trans          &trans  &trans
-                                                          &trans        &trans          &trans
-            >;
-        };
-    };
-};
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - board: nice_nano_v2
+            shield: charybdis_left
+            keymap: qwerty
+            format: bt
+            artifact-name: charybdis_qwerty_left
+          - board: nice_nano_v2
+            shield: charybdis_right
+            keymap: qwerty
+            format: bt
+            artifact-name: charybdis_qwerty_right
+            snippet: studio-rpc-usb-uart
+          - board: nice_nano_v2
+            shield: settings_reset
+            format: reset
+            artifact-name: firmware_reset_nano_v2
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up ZMK environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git cmake ninja-build dfu-util
+          pip3 install west
+          west init -m https://github.com/zmkfirmware/zmk.git --mr feat/pointers-with-input-processors
+          cd zmk
+          west update
+      - name: Build ZMK Firmware
+        run: |
+          cd zmk
+          west build -b nice_nano_v2 -- -DSHIELD=${{ matrix.shield }} -DZMK_KEYMAP=${{ matrix.keymap }} -DFORMAT=${{ matrix.format }} -DARTIFACT_NAME=${{ matrix.artifact-name }} ${{ matrix.snippet && format('-DSNIPPET={0}', matrix.snippet) || '' }}
+        env:
+          WEST_OUTPUT: build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: zmk-firmware
+          path: zmk/build/zephyr/*.uf2
